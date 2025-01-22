@@ -32,5 +32,10 @@ namespace PetShop.Pages
                 Classes.manager.MainFrame.GoBack();
             }
         }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.manager.MainFrame.Navigate(new Pages.AddEditPage());
+        }
     }
 }

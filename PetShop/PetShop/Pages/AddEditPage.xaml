@@ -9,6 +9,14 @@
       Title="AddEditPage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button x:Name="BackButton" Grid.Row="1" VerticalAlignment="Center" Click="BackButton_Click"
+                HorizontalAlignment="Left" Content="Назад" Margin="10,0,0,0"></Button>
+
+        
         
     </Grid>
 </Page>

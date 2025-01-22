@@ -25,6 +25,20 @@ namespace PetShop
             InitializeComponent();
             Classes.manager.MainFrame = MainFrame;
             Classes.manager.MainFrame.Navigate(new Pages.LoginPage());
+
+
+
+
+
         }
+        //private static PetShopEntities _context;
+        //public static PetShopEntities GetContext()
+        //{
+        //    if (_context == null)
+        //    {
+        //        _context = new PetShopEntities();
+        //    }
+        //    return _context;
+        //}
     }
 }

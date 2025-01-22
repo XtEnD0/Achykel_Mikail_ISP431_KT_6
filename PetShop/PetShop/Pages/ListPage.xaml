@@ -15,6 +15,17 @@
         </Grid.RowDefinitions>
         <Button x:Name="ExitButton" Grid.Row="1" VerticalAlignment="Center" Click="ExitButton_Click"
                 HorizontalAlignment="Left" Content="Выйти" Margin="10,0,0,0"></Button>
+
+
+        <Button x:Name="AddButton" Grid.Row="1" Content="Добавить" Click="AddButton_Click"
+                VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"></Button>
+
+        <ListView x:Name="MainListView" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            
+        </ListView>
+        
+        
+        
         
     </Grid>
 </Page>

@@ -24,5 +24,13 @@ namespace PetShop.Pages
         {
             InitializeComponent();
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Classes.manager.MainFrame.CanGoBack)
+            {
+                Classes.manager.MainFrame.GoBack();
+            }
+        }
     }
 }
