@@ -49,7 +49,9 @@ namespace PetShop.Pages
 
         private void GuestButton_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Вы хотите войти как гость?", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             Classes.manager.MainFrame.Navigate(new Pages.ListPage());
         }
+
     }
 }

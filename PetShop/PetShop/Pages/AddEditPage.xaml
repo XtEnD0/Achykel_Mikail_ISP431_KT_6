@@ -13,10 +13,65 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="ID:"></Label>
+            <TextBox Text="0" IsEnabled="False"></TextBox>
+            <Label Content="Наименование:"></Label>
+            <TextBox x:Name="NameTB"></TextBox>
+
+            <Label Content="Категория:"></Label>
+            <ComboBox x:Name="CategoryCB"
+                      ItemsSource="{Binding CategoryName, StringFormat={}{0}}"
+                      DisplayMemberPath="CategoryName"
+                      ></ComboBox>
+            
+            <Label Content="Количество на складе:"></Label>
+            <TextBox x:Name="QuantityTB"></TextBox>
+
+            <Label Content="Единица измерения:"></Label>
+            <TextBox x:Name="UnitTB"></TextBox>
+            
+            <Label Content="Поставщик:"></Label>
+            <TextBox x:Name="DealerTB"></TextBox>
+            
+            <Label Content="Стоимость за единицу:"></Label>
+            <TextBox x:Name="PriceTB"></TextBox>
+
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="0" Grid.Column="1"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Source="/res/picture.png" Width="200"/>
+            <TextBox Text="Описание" Margin="0,20,0,0" Height="75" MaxWidth="200" VerticalScrollBarVisibility="Auto"
+                     VerticalContentAlignment="Center" TextWrapping="Wrap" x:Name="DescriptionTB"></TextBox>
+
+
+        </StackPanel>
+        <!--наименование,
+        категория (выпадающий  список),
+        количество  на  складе,
+        единица  измерения,
+        поставщик,
+        стоимость  за  единицу,
+        изображение
+        подробное  описание-->
+
+
+
+        <Button x:Name="SaveButton" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Click="SaveButton_Click"
+                HorizontalAlignment="Right" Content="Сохранить" Margin="0,0,10,0"></Button>
         <Button x:Name="BackButton" Grid.Row="1" VerticalAlignment="Center" Click="BackButton_Click"
                 HorizontalAlignment="Left" Content="Назад" Margin="10,0,0,0"></Button>
 
-        
-        
+
+
     </Grid>
 </Page>

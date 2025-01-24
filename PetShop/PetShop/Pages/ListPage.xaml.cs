@@ -23,6 +23,8 @@ namespace PetShop.Pages
         public ListPage()
         {
             InitializeComponent();
+            MainListView.ItemsSource = Data.TradeEntities.GetContext().Product.ToList();
+            CategoryCB.ItemsSource = Data.TradeEntities.GetContext().ProductCategory.ToList();
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -37,5 +39,6 @@ namespace PetShop.Pages
         {
             Classes.manager.MainFrame.Navigate(new Pages.AddEditPage());
         }
+
     }
 }

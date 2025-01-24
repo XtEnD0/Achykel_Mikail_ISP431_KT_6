@@ -23,6 +23,7 @@ namespace PetShop.Pages
         public AddEditPage()
         {
             InitializeComponent();
+            CategoryCB.ItemsSource = Data.TradeEntities.GetContext().ProductCategory.ToList();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -31,6 +32,48 @@ namespace PetShop.Pages
             {
                 Classes.manager.MainFrame.GoBack();
             }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder err = new StringBuilder();
+            if (String.IsNullOrEmpty(NameTB.Text))
+            {
+                err.AppendLine("Введите Наименование");
+            }
+            if (String.IsNullOrEmpty(CategoryCB.Text))
+            {
+                err.AppendLine("Выберите категорию");
+            }
+            if (String.IsNullOrEmpty(QuantityTB.Text))
+            {
+                err.AppendLine("Введите количество на складе");
+            }
+            if (String.IsNullOrEmpty(UnitTB.Text))
+            {
+                err.AppendLine("Введите Ед. измерения");
+            }
+            if (String.IsNullOrEmpty(DealerTB.Text))
+            {
+                err.AppendLine("Введите Поставщика");
+            }
+            if (String.IsNullOrEmpty(PriceTB.Text))
+            {
+                err.AppendLine("Введите Стоимость за единицу");
+            }
+            if (String.IsNullOrEmpty(DescriptionTB.Text) || DescriptionTB.Text == "Описание")
+            {
+                err.AppendLine("Введите Описание");
+            }
+
+            if(err.Length > 0)
+            {
+                MessageBox.Show(err.ToString(), "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }else
+            {
+                MessageBox.Show("Сохиранено", "ура!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
         }
     }
 }

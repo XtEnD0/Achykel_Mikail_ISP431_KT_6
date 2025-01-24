@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PetShop"
-        mc:Ignorable="d"
-        Title="Магазин для животных" Height="650" Width="1000">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Магазин для животных" Height="650" Width="1000" MaxHeight="650" MaxWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
@@ -19,7 +19,7 @@
         </Grid>
 
         <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
-        
-        
+
+
     </Grid>
 </Window>

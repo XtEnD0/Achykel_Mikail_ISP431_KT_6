@@ -10,22 +10,60 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button x:Name="ExitButton" Grid.Row="1" VerticalAlignment="Center" Click="ExitButton_Click"
+        <Button x:Name="ExitButton" Grid.Row="2" VerticalAlignment="Center" Click="ExitButton_Click"
                 HorizontalAlignment="Left" Content="Выйти" Margin="10,0,0,0"></Button>
 
-
-        <Button x:Name="AddButton" Grid.Row="1" Content="Добавить" Click="AddButton_Click"
+        <ComboBox x:Name="CategoryCB" Grid.Row="0" Width="150"
+                      ItemsSource="{Binding CategoryName, StringFormat={}{0}}"
+                      DisplayMemberPath="CategoryName"
+                      ></ComboBox>
+        <Button x:Name="AddButton" Grid.Row="2" Content="Добавить" Click="AddButton_Click"
                 VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"></Button>
 
-        <ListView x:Name="MainListView" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            
+        <ListView x:Name="MainListView" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="250"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/res/picture.png" Grid.Column="0" Width="150" Height="100"/>
+                        <StackPanel Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding ProductArticle.Article, StringFormat={}Артикул: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding ProductCategory.CategoryName, StringFormat={}Категория: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding NameCategory.ProductCategoryName, StringFormat={}Наименование: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding ProductCost, StringFormat={}Цена: {0}}"></TextBlock>
+                            
+                        </StackPanel>
+                        <StackPanel Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding Manufacturer.ManufacturerName, StringFormat={}Производитель: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding Dealer.DealerName, StringFormat={}Поставщик: {0}}"></TextBlock>
+                            <TextBlock Text="{Binding ProductQuantityInStock, StringFormat={}В наличии: {0}}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding ProductDescription, StringFormat={}Описание: {0}}" TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Button x:Name="EditButton"
+                                    Content="Редактировать"></Button>
+                            <Button x:Name="DeleteButton" Margin="0,10,0,0"
+                                    Content="Удалить"></Button>
+                        </StackPanel>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
         </ListView>
-        
-        
-        
-        
+
     </Grid>
 </Page>
