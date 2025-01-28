@@ -26,6 +26,7 @@ namespace PetShop.Pages
             CategoryCB.ItemsSource = Data.TradeEntities.GetContext().ProductCategory.ToList();
         }
 
+        public static Data.Product _currentProduct = new Data.Product();
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             if (Classes.manager.MainFrame.CanGoBack)
@@ -71,7 +72,28 @@ namespace PetShop.Pages
                 MessageBox.Show(err.ToString(), "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
             }else
             {
-                MessageBox.Show("Сохиранено", "ура!", MessageBoxButton.OK, MessageBoxImage.Information);
+                try
+                {
+                    DataContext = _currentProduct;
+
+                    _currentProduct.NameCategory.ProductCategoryName = NameTB.Text;
+                    _currentProduct.ProductCategory.CategoryName = CategoryCB.Text;
+                    _currentProduct.ProductQuantityInStock = Int32.Parse(QuantityTB.Text);
+                    _currentProduct.Unit = UnitTB.Text;
+                    _currentProduct.Dealer.DealerName = DealerTB.Text;
+                    _currentProduct.ProductCost = Decimal.Parse(PriceTB.Text);
+                    _currentProduct.ProductDescription = DescriptionTB.Text;
+
+                    Data.TradeEntities.GetContext().Product.Add(_currentProduct);
+                    Data.TradeEntities.GetContext().SaveChanges();
+
+                    MessageBox.Show("Сохиранено", "ура!", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Возникло исключение!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                
             }
 
         }

@@ -40,5 +40,14 @@ namespace PetShop.Pages
             Classes.manager.MainFrame.Navigate(new Pages.AddEditPage());
         }
 
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Функция в разработке");
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Функция в разработке");
+        }
     }
 }

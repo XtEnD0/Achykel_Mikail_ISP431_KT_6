@@ -17,6 +17,12 @@
         <Button x:Name="ExitButton" Grid.Row="2" VerticalAlignment="Center" Click="ExitButton_Click"
                 HorizontalAlignment="Left" Content="Выйти" Margin="10,0,0,0"></Button>
 
+        <RadioButton x:Name="UpSort" Content="По возрастанию" Grid.Row="0" Margin="10,0,0,0"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"></RadioButton>
+
+        <RadioButton x:Name="DownSort" Content="По убыванию" Grid.Row="0" Margin="140,0,0,0"
+                     HorizontalAlignment="Left" VerticalAlignment="Center"></RadioButton>
+
         <ComboBox x:Name="CategoryCB" Grid.Row="0" Width="150"
                       ItemsSource="{Binding CategoryName, StringFormat={}{0}}"
                       DisplayMemberPath="CategoryName"
@@ -53,9 +59,9 @@
                             <TextBlock Text="{Binding ProductDescription, StringFormat={}Описание: {0}}" TextWrapping="Wrap"></TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Button x:Name="EditButton"
+                            <Button x:Name="EditButton" Click="EditButton_Click"
                                     Content="Редактировать"></Button>
-                            <Button x:Name="DeleteButton" Margin="0,10,0,0"
+                            <Button x:Name="DeleteButton" Margin="0,10,0,0" Click="DeleteButton_Click"
                                     Content="Удалить"></Button>
                         </StackPanel>
                         

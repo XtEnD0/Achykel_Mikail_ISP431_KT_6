@@ -19,11 +19,6 @@ namespace PetShop.Data
             : base("name=TradeEntities")
         {
         }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
 
         private static TradeEntities _context;
         public static TradeEntities GetContext()
@@ -35,6 +30,11 @@ namespace PetShop.Data
             return _context;
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Dealer> Dealer { get; set; }
         public virtual DbSet<Manufacturer> Manufacturer { get; set; }
@@ -47,7 +47,6 @@ namespace PetShop.Data
         public virtual DbSet<ProductCategory> ProductCategory { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Streets> Streets { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

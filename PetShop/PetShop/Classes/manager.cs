@@ -10,5 +10,6 @@ namespace PetShop.Classes
     public class manager
     {
         public static Frame MainFrame { get; set; }
+        public static Data.User CurrentUser { get; set; }
     }
 }

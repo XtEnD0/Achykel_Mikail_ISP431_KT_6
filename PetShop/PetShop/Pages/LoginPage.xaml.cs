@@ -42,7 +42,30 @@ namespace PetShop.Pages
             }
             else
             {
-                MessageBox.Show("Проверка прошла успешно", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (Data.TradeEntities.GetContext().User.Any(d => d.UserLogin == loginTB.Text && d.UserPassword == PasswordPB.Password))
+                {
+                    var user = Data.TradeEntities.GetContext().User.Where(d => d.UserLogin == loginTB.Text && d.UserPassword == PasswordPB.Password).FirstOrDefault();
+                    Classes.manager.CurrentUser = user;
+                    switch (user.Role.RoleName)
+                    {
+                        case "Администратор":
+                            Classes.manager.MainFrame.Navigate(new Pages.ListPage());
+                            MessageBox.Show("Добро пожаловать " + user.UserName + " " + user.UserPatronymic + "!", "Вы вошли как Администратор!", MessageBoxButton.OK, MessageBoxImage.Information);
+                            break;
+                        case "Клиент":
+                            Classes.manager.MainFrame.Navigate(new Pages.ListPage());
+                            MessageBox.Show("Добро пожаловать " + user.UserName + " " + user.UserPatronymic + "!", "Вы вошли как Клиент!", MessageBoxButton.OK, MessageBoxImage.Information);
+                            break;
+                        case "Менеджер":
+                            Classes.manager.MainFrame.Navigate(new Pages.ListPage());
+                            MessageBox.Show("Добро пожаловать " + user.UserName + " " + user.UserPatronymic + "!", "Вы вошли как Менеджер!", MessageBoxButton.OK, MessageBoxImage.Information);
+                            break;
+
+                    }
+                       
+
+                }
+
             }
 
         }
@@ -50,6 +73,7 @@ namespace PetShop.Pages
         private void GuestButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Вы хотите войти как гость?", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
             Classes.manager.MainFrame.Navigate(new Pages.ListPage());
         }
 

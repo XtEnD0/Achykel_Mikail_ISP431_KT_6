@@ -128,16 +128,6 @@
     <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="PickUpPoint" Relationship="Self.FK_PickUpPoint_Streets" FromRole="Streets" ToRole="PickUpPoint" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="UserID" />
@@ -296,7 +286,6 @@
     <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" />
     <EntitySet Name="Role" EntityType="Self.Role" />
     <EntitySet Name="Streets" EntityType="Self.Streets" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="User" EntityType="Self.User" />
     <AssociationSet Name="FK_PickUpPoint_City" Association="Self.FK_PickUpPoint_City">
       <End Role="City" EntitySet="City" />
