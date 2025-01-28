@@ -11,5 +11,7 @@ namespace PetShop.Classes
     {
         public static Frame MainFrame { get; set; }
         public static Data.User CurrentUser { get; set; }
+
+
     }
 }

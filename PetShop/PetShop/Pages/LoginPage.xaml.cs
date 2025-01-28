@@ -62,8 +62,12 @@ namespace PetShop.Pages
                             break;
 
                     }
-                       
 
+
+                }
+                else
+                {
+                    MessageBox.Show("Неверный логин или пароль", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
             }
