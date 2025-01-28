@@ -50,15 +50,15 @@ namespace PetShop.Pages
                     {
                         case "Администратор":
                             Classes.manager.MainFrame.Navigate(new Pages.ListPage());
-                            MessageBox.Show("Добро пожаловать " + user.UserName + " " + user.UserPatronymic + "!", "Вы вошли как Администратор!", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Добро пожаловать, " + user.UserName + " " + user.UserPatronymic + "!", "Вы вошли как Администратор!", MessageBoxButton.OK, MessageBoxImage.Information);
                             break;
                         case "Клиент":
                             Classes.manager.MainFrame.Navigate(new Pages.ListPage());
-                            MessageBox.Show("Добро пожаловать " + user.UserName + " " + user.UserPatronymic + "!", "Вы вошли как Клиент!", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Добро пожаловать, " + user.UserName + " " + user.UserPatronymic + "!", "Вы вошли как Клиент!", MessageBoxButton.OK, MessageBoxImage.Information);
                             break;
                         case "Менеджер":
                             Classes.manager.MainFrame.Navigate(new Pages.ListPage());
-                            MessageBox.Show("Добро пожаловать " + user.UserName + " " + user.UserPatronymic + "!", "Вы вошли как Менеджер!", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Добро пожаловать, " + user.UserName + " " + user.UserPatronymic + "!", "Вы вошли как Менеджер!", MessageBoxButton.OK, MessageBoxImage.Information);
                             break;
 
                     }
